@@ -1,0 +1,45 @@
+.formContainer{
+    width: fit-content;
+    position: relative;
+    margin: auto;
+    top: 150px;
+    background-color: #053fa360;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+}
+.dataField{
+    width: 100%;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+label{
+    font-size: 15px;
+}
+input{
+    color: white;
+    font-size: 15px;
+    border: none;
+    border-bottom: solid 2px black;
+    background-color: transparent;
+}
+input:focus{
+    outline: none;
+}
+.submitBtn{
+    width: 150px;
+    height: 30px;
+    position: relative;
+    margin: auto;
+    color: white;
+    font-size: 15px;
+    border: solid 1px black;
+    background-color: #0087d5;
+    border-radius: 5px;
+    transition: .5s;
+}
+.submitBtn:hover{
+    background-color: #19abff;
+    transition: .5s;
+}

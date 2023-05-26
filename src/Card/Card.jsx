@@ -5,8 +5,10 @@ export function Card ({id, image, title, price, description}) {
     const editar = () => {
       console.log("Editando" + id);
     }
-    const borrar = () => {
-      console.log("Borrando" + id);
+        // DELETE request using fetch with async/await
+    async function deletePost() {
+        await fetch(`https://api.escuelajs.co/api/v1/products/${idendifier}`, { method: 'DELETE' });
+        alert('Delete successful');
     }
     const idendifier = id;
     return (
@@ -15,13 +17,13 @@ export function Card ({id, image, title, price, description}) {
         <div className="card-body">
           <div className={`${Styles.details}`}>
             <h5 className="card-title">{title}</h5>
-            <h5 className="card-title">{price} $</h5>
           </div>
           
           <p className={`card-text ${Styles.productDesc}`}>{description}</p>
+          <h5 className="card-title">{price} $</h5>
           <div className={`${Styles.actionButtons}`}>
             <button href="#" className={`btn btn-primary ${Styles.buttons}`} onClick={editar}>Edit</button>
-            <button href="#" className={`btn btn-danger ${Styles.buttons}`} onClick={borrar}>Delete</button>
+            <button href="#" className={`btn btn-danger ${Styles.buttons}`} onClick={deletePost}>Delete</button>
           </div>
         </div>
       </div>

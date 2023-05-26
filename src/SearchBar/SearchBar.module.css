@@ -1,0 +1,11 @@
+.searchBar{
+    width: fit-content;
+    position: relative;
+    margin: auto;
+    margin-top: 15px;
+}
+input{
+    width: 300px;
+    color: black;
+    margin-left: 10px;
+}

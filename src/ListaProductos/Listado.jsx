@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Card } from "../Card/Card";
 import Styles from './listado.module.css'
+import { SearchBar } from "../SearchBar/SearchBar";
 
 
 export function ListarProductos() {
@@ -14,8 +15,9 @@ export function ListarProductos() {
         const data = await response.json();
         setProducts(data)
     }
-    console.log(products.filter(producto => producto.title == "Lamborghini Aventador"));
     return(
+        <>
+        <SearchBar/>
         <div className={`${Styles.container}`}>
             {products?.map((product) => (
                 <Card
@@ -28,5 +30,6 @@ export function ListarProductos() {
                 />
             ))}
         </div>
+        </>
     )
 }

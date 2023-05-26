@@ -1,0 +1,7 @@
+.navItems a{
+    color: white;
+}
+.navItems a:hover{
+    background-color: orange;
+    border-radius: 5px;
+}

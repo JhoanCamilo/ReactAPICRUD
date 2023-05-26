@@ -20,8 +20,9 @@ export function Formulario() {
         const response = await fetch(urlAPI, requestOptions);
         const data = await response.json();
         setPostProduct(data);
-        console.log(postProduct);
+        
     }
+    console.log(postProduct);
 
     function handleSubmit(event) {
         event.preventDefault()

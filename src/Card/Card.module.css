@@ -10,3 +10,10 @@
     height: 150px;
     object-fit: cover;
 }
+.actionButtons{
+    display: flex;
+    justify-content: space-around;
+}
+.buttons{
+    width: 100px;
+}

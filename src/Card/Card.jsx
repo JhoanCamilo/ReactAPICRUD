@@ -1,8 +1,14 @@
 /* eslint-disable react/prop-types */
 import Styles from "./Card.module.css"
 
-export function Card ({image, title, price, description}) {
-    
+export function Card ({id, image, title, price, description}) {
+    const editar = () => {
+      console.log("Editando" + id);
+    }
+    const borrar = () => {
+      console.log("Borrando" + id);
+    }
+    const idendifier = id;
     return (
       <div className={`card ${Styles.card}`}>
         <img src={image} className={`card-img-top ${Styles.cardImage}`} alt={image}/>
@@ -13,7 +19,10 @@ export function Card ({image, title, price, description}) {
           </div>
           
           <p className={`card-text ${Styles.productDesc}`}>{description}</p>
-          <a href="#" className={`btn btn-primary ${Styles.buttons}`}>Show details</a>
+          <div className={`${Styles.actionButtons}`}>
+            <button href="#" className={`btn btn-primary ${Styles.buttons}`} onClick={editar}>Edit</button>
+            <button href="#" className={`btn btn-danger ${Styles.buttons}`} onClick={borrar}>Delete</button>
+          </div>
         </div>
       </div>
     );

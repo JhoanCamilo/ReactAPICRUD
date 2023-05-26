@@ -14,11 +14,13 @@ export function ListarProductos() {
         const data = await response.json();
         setProducts(data)
     }
+    console.log(products.filter(producto => producto.title == "Lamborghini Aventador"));
     return(
         <div className={`${Styles.container}`}>
             {products?.map((product) => (
                 <Card
                     key={product.id}
+                    id={product.id}
                     image={product.images[0]}
                     title={product.title}
                     price={product.price}

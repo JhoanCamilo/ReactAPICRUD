@@ -4,3 +4,14 @@
     justify-content: space-around;
     flex-wrap: wrap;
 }
+.searchBar{
+    width: fit-content;
+    position: relative;
+    margin: auto;
+    margin-top: 15px;
+}
+input{
+    color: black !important;
+    width: 300px;
+    margin-left: 10px;
+}

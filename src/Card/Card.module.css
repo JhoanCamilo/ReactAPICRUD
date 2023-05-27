@@ -2,10 +2,6 @@
     width: 300px;
     margin-top: 15px;
 }
-.details{
-    display: flex;
-    justify-content: space-between;
-}
 .cardImage{
     height: 150px;
     object-fit: cover;
@@ -16,4 +12,10 @@
 }
 .buttons{
     width: 100px;
+}
+.modalButton{
+    width: 100px;
+}
+.productDesc{
+    min-height: 100px;
 }

@@ -1,19 +1,22 @@
 /* eslint-disable react/prop-types */
 import Styles from "./Card.module.css"
-import React from 'react'
+import {useContext, useRef, useState} from 'react'
+import {listado} from '../context/Context'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Button, Modal, ModalFooter, ModalHeader, ModalBody} from "reactstrap"
 
 function ShowModal({id, modalTitle, pPrice}) {
-  const productNameRef = React.useRef(null)
-  const productPriceRef = React.useRef(null)
-  const [modal, setModal] = React.useState(false);
+  const {gettingProducts} = useContext(listado)
+  const productNameRef = useRef(null)
+  const productPriceRef = useRef(null)
+  const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
 
   function handleSubmit(event) {
     event.preventDefault()
     const productName = productNameRef.current?.value
     const productPrice = productPriceRef.current?.value
+    
 
     var productData = {
         "title": productName,
@@ -30,6 +33,7 @@ function ShowModal({id, modalTitle, pPrice}) {
       };
       const response = await fetch(`https://api.escuelajs.co/api/v1/products/${id}`, requestOptions);
       const data = await response.json();
+      gettingProducts()
       toggle()
   }
 
@@ -60,8 +64,10 @@ function ShowModal({id, modalTitle, pPrice}) {
 }
 
 export function Card ({id, image, title, price, description}) {
+    const {filteredProducts, setFilteredProducts} = useContext(listado)
     async function deletePost() {
         await fetch(`https://api.escuelajs.co/api/v1/products/${idendifier}`, { method: 'DELETE' });
+        setFilteredProducts(filteredProducts.filter((item) => item.id !== idendifier))
         alert('Delete successful');
     }
     const idendifier = id;

@@ -14,8 +14,6 @@ function App() {
           <Route path='/Create' element={<Formulario/>}/>
         </Route>
       </Routes>
-      
-      
     </>
   )
 }

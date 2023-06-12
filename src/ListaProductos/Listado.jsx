@@ -1,22 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import {listado} from '../context/Context'
 import { Card } from "../Card/Card";
 import Styles from './listado.module.css'
 
 
 export function ListarProductos() {
-    const [products, setProducts] = useState([])
-    const [filteredProducts, setFilteredProducts] = useState([])
+    const {products, filteredProducts, setFilteredProducts, gettingProducts} = useContext(listado)
     const [filterSearch, setFilterSearch] = useState('')
     useEffect(()=>{
         gettingProducts()
     },[])
-    async function gettingProducts() {
-        // GET request using fetch with async/await
-        const response = await fetch('https://api.escuelajs.co/api/v1/products');
-        const data = await response.json();
-        setProducts(data)
-        setFilteredProducts(data)
-    }
     function filterResults(evt) {
         const searchProduct = evt.target.value
         setFilterSearch(searchProduct)
